@@ -23,7 +23,12 @@ const Categories = (props) => {
                 </a>
                 <ul className="sub-menu collapse" id="blush">
                   <li>
-                    <Link to="product_category=powder&product_type=blush">
+                    <Link
+                      to={{
+                        pathname: "/details",
+                        search: `?product_category=powder&product_type=blush`, // inject code value into template
+                      }}
+                    >
                       Powder
                     </Link>
                   </li>
