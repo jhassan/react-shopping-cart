@@ -1,7 +1,9 @@
 import React from "react";
 import { Outlet, Link } from "react-router-dom";
+import { useSelector } from 'react-redux';
 
 const Header = (props) => {
+  const items = useSelector((state) => state.cart);
   return (
     <div>
       <header className="header_area">
@@ -17,10 +19,10 @@ const Header = (props) => {
                   </div>
                   <div className="header-cart-menu d-flex align-items-center ml-auto">
                     <div className="cart">
-                      <a href="#" id="header-cart-btn" target="_blank">
-                        <span className="cart_quantity">2</span>{" "}
+                      <Link to="/cart" id="header-cart-btn">
+                        <span className="cart_quantity">{items.length}</span>{" "}
                         <i className="ti-bag"></i> Your Bag $20
-                      </a>
+                      </Link>
                       <ul className="cart-list">
                         <li>
                           <a href="#" className="image">
@@ -64,11 +66,11 @@ const Header = (props) => {
                         </li>
                         <li className="total">
                           <span className="pull-right">Total: $20.00</span>
-                          <a href="cart.html" className="btn btn-sm btn-cart">
+                          <a href="#" className="btn btn-sm btn-cart">
                             Cart
                           </a>
                           <a
-                            href="checkout-1.html"
+                            href="#"
                             className="btn btn-sm btn-checkout"
                           >
                             Checkout
@@ -129,7 +131,7 @@ const Header = (props) => {
                     >
                       <ul className="navbar-nav animated" id="nav">
                         <li className="nav-item active">
-                          <a className="nav-link" href="index.html">
+                          <a className="nav-link" href="/">
                             Home
                           </a>
                         </li>
@@ -149,22 +151,22 @@ const Header = (props) => {
                             className="dropdown-menu"
                             aria-labelledby="karlDropdown"
                           >
-                            <a className="dropdown-item" href="index.html">
+                            <a className="dropdown-item" href="/">
                               Home
                             </a>
-                            <a className="dropdown-item" href="shop.html">
+                            <a className="dropdown-item" href="#">
                               Shop
                             </a>
                             <a
                               className="dropdown-item"
-                              href="product-details.html"
+                              href="#"
                             >
                               Product Details
                             </a>
-                            <a className="dropdown-item" href="cart.html">
+                            <a className="dropdown-item" href="#">
                               Cart
                             </a>
-                            <a className="dropdown-item" href="checkout.html">
+                            <a className="dropdown-item" href="#">
                               Checkout
                             </a>
                           </div>

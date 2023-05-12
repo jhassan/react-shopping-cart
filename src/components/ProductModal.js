@@ -1,6 +1,7 @@
 import React from "react";
 
-const ProductModal = () => {
+const ProductModal = ({ data, closeModal }) => {
+  console.log("data", data);
   return (
     <div>
       <div
@@ -21,6 +22,7 @@ const ProductModal = () => {
               className="close btn"
               data-dismiss="modal"
               aria-label="Close"
+              onClick={closeModal}
             >
               <span aria-hidden="true">&times;</span>
             </button>
@@ -31,12 +33,12 @@ const ProductModal = () => {
                   <div className="row">
                     <div className="col-12 col-lg-5">
                       <div className="quickview_pro_img">
-                        <img src="img/product-img/product-1.jpg" alt="" />
+                        <img src={data?.image_link} alt="" />
                       </div>
                     </div>
                     <div className="col-12 col-lg-7">
                       <div className="quickview_pro_des">
-                        <h4 className="title">Boutique Silk Dress</h4>
+                        <h4 className="title">{data?.name}</h4>
                         <div className="top_seller_product_rating mb-15">
                           <i className="fa fa-star" aria-hidden="true"></i>
                           <i className="fa fa-star" aria-hidden="true"></i>
@@ -45,13 +47,10 @@ const ProductModal = () => {
                           <i className="fa fa-star" aria-hidden="true"></i>
                         </div>
                         <h5 className="price">
-                          $120.99 <span>$130</span>
+                          ${data?.price}
                         </h5>
                         <p>
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit. Mollitia expedita quibusdam aspernatur, sapiente
-                          consectetur accusantium perspiciatis praesentium
-                          eligendi, in fugiat?
+                          {data?.description}
                         </p>
                         <a href="#">View Full Product Details</a>
                       </div>

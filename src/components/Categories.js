@@ -26,16 +26,21 @@ const Categories = (props) => {
                     <Link
                       to={{
                         pathname: "/details",
-                        search: `?product_category=powder&product_type=blush`, // inject code value into template
+                        search: `?product_category=powder&product_type=blush`,
                       }}
                     >
                       Powder
                     </Link>
                   </li>
                   <li>
-                    <a href="product_category=powder&product_type=cream">
+                    <Link
+                      to={{
+                        pathname: "/details",
+                        search: `?product_category=cream&product_type=blush`,
+                      }}
+                    >
                       Cream
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </li>
@@ -49,9 +54,14 @@ const Categories = (props) => {
                 </a>
                 <ul className="sub-menu collapse" id="bronzer">
                   <li>
-                    <a href="product_category=powder&product_type=bronzer">
+                    <Link
+                      to={{
+                        pathname: "/details",
+                        search: `?product_category=powder&product_type=bronzer`,
+                      }}
+                    >
                       Powder
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </li>
@@ -65,9 +75,14 @@ const Categories = (props) => {
                 </a>
                 <ul className="sub-menu collapse" id="eyebrow">
                   <li>
-                    <a href="product_category=pencil&product_type=eyebrow">
+                    <Link
+                      to={{
+                        pathname: "/details",
+                        search: `?product_category=pencil&product_type=eyebrow`,
+                      }}
+                    >
                       Pencil
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </li>
@@ -81,22 +96,44 @@ const Categories = (props) => {
                 </a>
                 <ul className="sub-menu collapse" id="eyeliner">
                   <li>
-                    <a href="product_category=liquid&product_type=eyeliner">
+                    <Link
+                      to={{
+                        pathname: "/details",
+                        search: `?product_category=liquid&product_type=eyeliner`,
+                      }}
+                    >
                       Liquid
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="product_category=pencil&product_type=eyeliner">
+                    <Link
+                      to={{
+                        pathname: "/details",
+                        search: `?product_category=pencil&product_type=eyeliner`,
+                      }}
+                    >
                       Pencil
-                    </a>
+                    </Link>
                   </li>
+                 <li>
+                    <Link
+                      to={{
+                        pathname: "/details",
+                        search: `?product_category=gel&product_type=eyeliner`,
+                      }}
+                    >
+                      Gel
+                    </Link>
+                 </li>
                   <li>
-                    <a href="product_category=gel&product_type=eyeliner">Gel</a>
-                  </li>
-                  <li>
-                    <a href="product_category=cream&product_type=eyeliner">
+                    <Link
+                      to={{
+                        pathname: "/details",
+                        search: `?product_category=cream&product_type=eyeliner`,
+                      }}
+                    >
                       Cream
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </li>
@@ -110,19 +147,34 @@ const Categories = (props) => {
                 </a>
                 <ul className="sub-menu collapse" id="eyeshadow">
                   <li>
-                    <a href="product_category=palette&product_type=eyeshadow">
+                    <Link
+                      to={{
+                        pathname: "/details",
+                        search: `?product_category=palette&product_type=eyeshadow`,
+                      }}
+                    >
                       Palette
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="product_category=pencil&product_type=eyeshadow">
+                    <Link
+                      to={{
+                        pathname: "/details",
+                        search: `?product_category=pencil&product_type=eyeshadow`,
+                      }}
+                    >
                       Pencil
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="product_category=cream&product_type=eyeshadow">
+                    <Link
+                      to={{
+                        pathname: "/details",
+                        search: `?product_category=cream&product_type=eyeshadow`,
+                      }}
+                    >
                       Cream
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </li>
@@ -136,44 +188,84 @@ const Categories = (props) => {
                 </a>
                 <ul className="sub-menu collapse" id="foundation">
                   <li>
-                    <a href="product_category=concealer&product_type=foundation">
+                    <Link
+                      to={{
+                        pathname: "/details",
+                        search: `?product_category=concealer&product_type=foundation`,
+                      }}
+                    >
                       Concealer
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="product_category=liquid&product_type=foundation">
+                    <Link
+                      to={{
+                        pathname: "/details",
+                        search: `?product_category=liquid&product_type=foundation`,
+                      }}
+                    >
                       Liquid
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="product_category=contour&product_type=foundation">
+                    <Link
+                      to={{
+                        pathname: "/details",
+                        search: `?product_category=contour&product_type=foundation`,
+                      }}
+                    >
                       Contour
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="product_category=bb_cc&product_type=foundation">
+                    <Link
+                      to={{
+                        pathname: "/details",
+                        search: `?product_category=bb_cc&product_type=foundation`,
+                      }}
+                    >
                       Bb cc
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="product_category=cream&product_type=foundation">
+                    <Link
+                      to={{
+                        pathname: "/details",
+                        search: `?product_category=cream&product_type=foundation`,
+                      }}
+                    >
                       Cream
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="product_category=mineral&product_type=foundation">
+                    <Link
+                      to={{
+                        pathname: "/details",
+                        search: `?product_category=mineral&product_type=foundation`,
+                      }}
+                    >
                       Mineral
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="product_category=powder&product_type=foundation">
+                    <Link
+                      to={{
+                        pathname: "/details",
+                        search: `?product_category=powder&product_type=foundation`,
+                      }}
+                    >
                       Powder
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="product_category=highlighter&product_type=foundation">
+                    <Link
+                      to={{
+                        pathname: "/details",
+                        search: `?product_category=highlighter&product_type=foundation`,
+                      }}
+                    >
                       Highlighter
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </li>

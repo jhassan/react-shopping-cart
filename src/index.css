@@ -11,3 +11,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.add-to-cart{
+  cursor: pointer;
+}
+.red{
+  color: #ff084e !important;
+}

@@ -5,26 +5,9 @@ var Carousel = require("react-responsive-carousel").Carousel;
 const Banner = () => {
   return (
     <div>
-      <section className="top-discount-area d-md-flex align-items-center">
-        <div className="single-discount-area">
-          <h5>Free Shipping &amp; Returns</h5>
-          <h6>
-            <a href="#">BUY NOW</a>
-          </h6>
-        </div>
-        <div className="single-discount-area">
-          <h5>20% Discount for all dresses</h5>
-          <h6>USE CODE: Colorlib</h6>
-        </div>
-        <div className="single-discount-area">
-          <h5>20% Discount for students</h5>
-          <h6>USE CODE: Colorlib</h6>
-        </div>
-      </section>
-
       <section className="welcome_area">
         <div className="welcome_slides">
-          <Carousel autoPlay={true} showArrows={false} owThumbs={false}>
+          <Carousel autoPlay={true} showArrows={false} showThumbs={false}>
             <div
               className="single_slide height-800 bg-img background-overlay"
               style={{ backgroundImage: "url('./img/bg-img/bg-1.jpg')" }}

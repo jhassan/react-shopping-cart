@@ -1,6 +1,47 @@
-import React from "react";
+import { React, useState, useEffect } from "react";
+import ProductModal from "../components/ProductModal";
+import { useDispatch, useSelector } from 'react-redux';
+import { add } from '../store/cartSlice';
+// import { fetchProducts } from '../store/productSlice';
+// import { STATUSES } from '../store/productSlice';
 
 const NewArival = () => {
+  const [newArrivals, setNewArrivals] = useState([])
+  const [data, setData] = useState(null);
+  const [show, setShow] = useState(false)
+  const dispatch = useDispatch();
+  const fetchNewArrivalData = () => {
+    fetch("http://makeup-api.herokuapp.com/api/v1/products.json?brand=covergirl&product_type=lipstick")
+      .then(response => {
+        return response.json()
+      })
+      .then(data => {
+        console.log('data', data);
+        setNewArrivals(data)
+      })
+  }
+
+  // Show Product Modal Details
+  const showProductModal = (product) => {
+    // console.log('product data', product);
+    setData(product);
+    setShow(product !== null);
+  }
+  // add to cart
+  const handleAdd = (product) => {
+    const oldproduct = localStorage.getItem('products') ? localStorage.getItem('products') : "[]";
+    const arrayproduct =  JSON.parse(oldproduct);  
+    if(arrayproduct.length === 0){
+      arrayproduct.push(product);
+    } else {
+      arrayproduct.push(product);
+    }
+    localStorage.setItem('products', JSON.stringify(arrayproduct));
+  };
+
+  useEffect(() => {
+    fetchNewArrivalData()
+  }, [])
   return (
     <div>
       <section className="new_arrivals_area section_padding_100_0 clearfix">
@@ -38,134 +79,38 @@ const NewArival = () => {
         </div>
 
         <div className="container">
+        {newArrivals.length > 0 && (
           <div className="row karl-new-arrivals">
+            {newArrivals?.map(product => (
+
             <div
               className="col-12 col-sm-6 col-md-4 single_gallery_item women wow fadeInUpBig"
               data-wow-delay="0.2s"
+              key={product.id}
             >
               <div className="product-img">
-                <img src="img/product-img/product-1.jpg" alt="" />
+                <img src={product?.image_link} alt="" />
                 <div className="product-quicview">
-                  <a href="#" data-toggle="modal" data-target="#quickview">
+                  <a href="#" onClick={() => showProductModal(product) } data-toggle="modal" data-target="#quickview">
                     <i className="ti-plus"></i>
                   </a>
                 </div>
               </div>
               <div className="product-description">
-                <h4 className="product-price">$39.90</h4>
-                <p>Jeans midi cocktail dress</p>
-                <a href="#" className="add-to-cart-btn">
+                <h4 className="product-price">${product?.price}</h4>
+                <p>{product?.name}</p>
+                <a onClick={() => handleAdd(product)} className="add-to-cart-btn add-to-cart red">
                   ADD TO CART
                 </a>
               </div>
             </div>
-
-            <div
-              className="col-12 col-sm-6 col-md-4 single_gallery_item women wow fadeInUpBig"
-              data-wow-delay="0.3s"
-            >
-              <div className="product-img">
-                <img src="img/product-img/product-2.jpg" alt="" />
-                <div className="product-quicview">
-                  <a href="#" data-toggle="modal" data-target="#quickview">
-                    <i className="ti-plus"></i>
-                  </a>
-                </div>
-              </div>
-              <div className="product-description">
-                <h4 className="product-price">$39.90</h4>
-                <p>Jeans midi cocktail dress</p>
-                <a href="#" className="add-to-cart-btn">
-                  ADD TO CART
-                </a>
-              </div>
-            </div>
-
-            <div
-              className="col-12 col-sm-6 col-md-4 single_gallery_item access wow fadeInUpBig"
-              data-wow-delay="0.4s"
-            >
-              <div className="product-img">
-                <img src="img/product-img/product-3.jpg" alt="" />
-                <div className="product-quicview">
-                  <a href="#" data-toggle="modal" data-target="#quickview">
-                    <i className="ti-plus"></i>
-                  </a>
-                </div>
-              </div>
-              <div className="product-description">
-                <h4 className="product-price">$39.90</h4>
-                <p>Jeans midi cocktail dress</p>
-                <a href="#" className="add-to-cart-btn">
-                  ADD TO CART
-                </a>
-              </div>
-            </div>
-
-            <div
-              className="col-12 col-sm-6 col-md-4 single_gallery_item shoes wow fadeInUpBig"
-              data-wow-delay="0.5s"
-            >
-              <div className="product-img">
-                <img src="img/product-img/product-4.jpg" alt="" />
-                <div className="product-quicview">
-                  <a href="#" data-toggle="modal" data-target="#quickview">
-                    <i className="ti-plus"></i>
-                  </a>
-                </div>
-              </div>
-              <div className="product-description">
-                <h4 className="product-price">$39.90</h4>
-                <p>Jeans midi cocktail dress</p>
-                <a href="#" className="add-to-cart-btn">
-                  ADD TO CART
-                </a>
-              </div>
-            </div>
-
-            <div
-              className="col-12 col-sm-6 col-md-4 single_gallery_item women wow fadeInUpBig"
-              data-wow-delay="0.6s"
-            >
-              <div className="product-img">
-                <img src="img/product-img/product-5.jpg" alt="" />
-                <div className="product-quicview">
-                  <a href="#" data-toggle="modal" data-target="#quickview">
-                    <i className="ti-plus"></i>
-                  </a>
-                </div>
-              </div>
-              <div className="product-description">
-                <h4 className="product-price">$39.90</h4>
-                <p>Jeans midi cocktail dress</p>
-                <a href="#" className="add-to-cart-btn">
-                  ADD TO CART
-                </a>
-              </div>
-            </div>
-
-            <div
-              className="col-12 col-sm-6 col-md-4 single_gallery_item kids man wow fadeInUpBig"
-              data-wow-delay="0.7s"
-            >
-              <div className="product-img">
-                <img src="img/product-img/product-6.jpg" alt="" />
-                <div className="product-quicview">
-                  <a href="#" data-toggle="modal" data-target="#quickview">
-                    <i className="ti-plus"></i>
-                  </a>
-                </div>
-              </div>
-              <div className="product-description">
-                <h4 className="product-price">$39.90</h4>
-                <p>Jeans midi cocktail dress</p>
-                <a href="#" className="add-to-cart-btn">
-                  ADD TO CART
-                </a>
-              </div>
-            </div>
+            ))}
           </div>
+          )}    
         </div>
+        {show === true && data !== null && (
+          <ProductModal data={data} closeModal={() => showProductModal()}/>
+        )}
       </section>
     </div>
   );
